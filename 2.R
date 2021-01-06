@@ -1,6 +1,7 @@
 #jgzhjtdhtrdhg
 #davor+asia
 dasdasdas
+<<<<<<< HEAD
 
 
 # check your package library path 
@@ -19,3 +20,10 @@ if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages,function(x){library(x,character.only=TRUE)})
 
 a
+=======
+update.packages(ask = FALSE)
+
+remove.packages("ggplot2")
+remove.packages("gtable")
+install.packages("ggplot2")
+>>>>>>> 782deda4fd3274e818d0314c94aeb99d510593ee
