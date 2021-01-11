@@ -177,5 +177,16 @@ f500[f500$Industry=="Construction" & is.na(f500$Expenses)& is.na(f500$Profit),]
 f500[f500$Industry=="Construction" & is.na(f500$Expenses),"Expenses"]<-med_exp_constr
 f500[!complete.cases(f500),]
 
-demo()
-citation()
+#cal missing data
+#revenue = expenses - profit
+#expenses = revenue - profit
+f500[is.na(f500$Profit),"Profit"] <- f500[is.na(f500$Profit),"Revenue"] - f500[is.na(f500$Profit),"Expenses"]
+f500[c(8,42),]
+f500[!complete.cases(f500),]
+
+f500[is.na(f500$Expenses),"Expenses"] <- f500[is.na(f500$Expenses),"Revenue"] - f500[is.na(f500$Expenses),"Profit"]
+f500[15,]
+f500[!complete.cases(f500),]
+
+
+
