@@ -177,5 +177,3 @@ f500[f500$Industry=="Construction" & is.na(f500$Expenses)& is.na(f500$Profit),]
 f500[f500$Industry=="Construction" & is.na(f500$Expenses),"Expenses"]<-med_exp_constr
 f500[!complete.cases(f500),]
 
-demo()
-citation()
