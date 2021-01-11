@@ -177,7 +177,7 @@ f500[f500$Industry=="Construction" & is.na(f500$Expenses)& is.na(f500$Profit),]
 f500[f500$Industry=="Construction" & is.na(f500$Expenses),"Expenses"]<-med_exp_constr
 f500[!complete.cases(f500),]
 
-<<<<<<< HEAD:AdvR_DataPrep.R
+
 #cal missing data
 #revenue = expenses - profit
 #expenses = revenue - profit
@@ -189,7 +189,6 @@ f500[is.na(f500$Expenses),"Expenses"] <- f500[is.na(f500$Expenses),"Revenue"] - 
 f500[15,]
 f500[!complete.cases(f500),]
 
+?which
 
 
-=======
->>>>>>> f327c3f6db4b9a5c4c37a22931a417505d407d02:advancedRcourse.R
