@@ -178,6 +178,7 @@ f500[f500$Industry=="Construction" & is.na(f500$Expenses),"Expenses"]<-med_exp_c
 f500[!complete.cases(f500),]
 
 
+
 #cal missing data
 #revenue = expenses - profit
 #expenses = revenue - profit
@@ -189,6 +190,16 @@ f500[is.na(f500$Expenses),"Expenses"] <- f500[is.na(f500$Expenses),"Revenue"] - 
 f500[15,]
 f500[!complete.cases(f500),]
 
-?which
+#visualisation
+p<-ggplot(data=f500)
+d<-p + geom_point(aes(x=Revenue,y=Expenses,color=Industry))
+d + geom_point() + geom_smooth(fill=NA, size=1.2)
+#boxplot
+f<-ggplot(data=f500, aes(x=Industry,y=Growth,color=Industry))
+f+geom_boxplot(size=1)
+#bonus
+f+geom_jitter() + geom_boxplot(size=1, alpha = 0.5, outlier.color = NA)
+
+
 
 
