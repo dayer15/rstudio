@@ -73,3 +73,5 @@ typeof(list_rl1$Stats)
 
 #how would you access the 3rd element of the vector max utilization
 list_rl1$Stats[3]
+
+2
