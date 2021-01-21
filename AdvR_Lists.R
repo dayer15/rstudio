@@ -1,5 +1,4 @@
-#lists
-
+#Lists
 #Character: Machine name
 #Vector: (min, mean, max) utilisation for the month (excluding unknown hours)
 #Logical: Has utilisation ever fallen below 90%? TRUE / FALSE
@@ -61,17 +60,53 @@ list_rl1
 #[] will always return a list
 #[[]] will always return the actual object
 #$ same as [[] but prettier]
-
 list_rl1
 list_rl1[1]
 list_rl1[[1]]
 list_rl1$Machine
-
 typeof(list_rl1[2])
 typeof(list_rl1[[2]])
 typeof(list_rl1$Stats)
-
 #how would you access the 3rd element of the vector max utilization
 list_rl1$Stats[3]
 
-2
+
+#adding and deleting list components
+list_rl1
+list_rl1[4]<-"New Information"
+list_rl1
+#anotherway to add a componentn via the $
+#we will add:
+#Vector: All hours where utilisation is unknown (NA’s)
+RL1
+RL1[is.na(RL1$Utilization),]
+RL1[is.na(RL1$Utilization),"PosixTime"]
+list_rl1$UnknownHours <- RL1[is.na(RL1$Utilization),"PosixTime"]
+list_rl1
+
+#remove component, use of NULL
+list_rl1[4]<-NULL
+list_rl1
+#notice: Numeration has shifted and no need to renumerate
+list_rl1[4]
+
+#add another component
+#Dataframe: For this machine
+list_rl1$Data <- RL1
+list_rl1
+summary(list_rl1)
+str(list_rl1)
+
+#subsetting a list
+#challange
+list_rl1[[4]][1]
+list_rl1$UnknownHours[1]
+#subsetting a list
+list_rl1[1:3]
+list_rl1[c(1,4)]
+sublist_rl1 <- list_rl1[c("Machine","Stats")]
+sublist_rl1
+sublist_rl1[[2]][2]
+sublist_rl1$Stats[2]
+#double square brackets are not for subsetting
+#list_rl1[[1:3]] #error
