@@ -110,3 +110,19 @@ sublist_rl1[[2]][2]
 sublist_rl1$Stats[2]
 #double square brackets are not for subsetting
 #list_rl1[[1:3]] #error
+library(ggplot2)
+p<-ggplot(data=util)
+p+geom_line(aes(x=PosixTime, y=Utilization))
+p+geom_line(aes(x=PosixTime, y=Utilization,colour=Machine), size=0.2) + 
+  facet_grid(Machine~.) + 
+  geom_hline(yintercept = 0.90, color="Gray", size=1.3, linetype=3)
+#adding plot
+myplot<-p+geom_line(aes(x=PosixTime, y=Utilization,colour=Machine), size=0.2) + 
+  facet_grid(Machine~.) + 
+  geom_hline(yintercept = 0.90, color="Gray", size=1.3, linetype=3)
+
+list_rl1$Plot<-myplot
+list_rl1
+
+summary(list_rl1)
+str(list_rl1)
